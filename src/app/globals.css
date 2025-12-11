@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-background: var(--background);
+  --font-bebas-neue: var(--font-bebas-neue);
+  --font-poppins: var(--font-poppins);
+  --color-custom-button-color: var(--custom-button-color);
+  --color-a-yellow-100: #ffecb8;
+  --color-a-green-600: #1d4e1a;
+}
+
+button{
+  cursor: pointer;
+}
+:root {
+  --background: #f2efe4;
+  --custom-button-color: #f58220;
+}
+
+@layer base {
+  body {
+    @apply bg-background;
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+}
+
+
+.fade-top-mask {
+  -webkit-mask-image: linear-gradient(to top, rgb(255, 255, 255) 80%, transparent 100%);
+  mask-image: linear-gradient(to top, rgb(255, 255, 255) 95%, transparent 100%);
+}
+/* Container */
+.ah-container {
+  max-width: 1536px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+@media screen and (max-width: 1280px) {
+  .ah-container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .ah-container {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ah-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .ah-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .ah-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .ah-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+/* Scrollbar Hide Utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+
+/* swiper js code */
+
+.swiper-button-next {
+  width: 60px !important;
+  height: 60px !important;
+  padding: 20px;
+  border-radius: 100%;
+}
+.swiper-button-prev {
+  width: 60px !important;
+  height: 60px !important;
+  padding: 15px;
+  border-radius: 100%;
+}
+
+.swiper-button-next::after {
+  display: none;
+}
+.swiper-button-prev::after {
+  display: none;
+}
+
+.swiper-pagination-bullet {
+  width: 14px !important;
+  height: 14px !important;
+  text-align: center;
+  line-height: 14px;
+  font-size: 12px;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  color: #fff;
+  width: 40px !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 10px !important;
+}
+
+/* Banner Swiper Custom Styles */
+.bannerSwiper {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.bannerSwiper .swiper-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.bannerSwiper .swiper-slide {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.banner-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  opacity: 1 !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+}
+
+.banner-pagination-bullet-active {
+  background: rgba(255, 255, 255, 0.5) !important;
+  width: 24px !important;
+  border-radius: 5px !important;
+}
+
+
+/* rich text editor */
+
+/* TipTap Rich Text Editor Styles */
+.ProseMirror {
+  outline: none;
+  min-height: 120px;
+  padding: 0.75rem;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #adb5bd;
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.ProseMirror h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0.5rem 0;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.ProseMirror blockquote {
+  border-left: 3px solid #e5e7eb;
+  padding-left: 1rem;
+  margin: 0.5rem 0;
+  font-style: italic;
+  color: #6b7280;
+}
+
+.ProseMirror code {
+  background-color: #f3f4f6;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
+.ProseMirror pre {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 0.5rem 0;
+}
+
+.ProseMirror pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.ProseMirror a {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.ProseMirror a:hover {
+  color: #2563eb;
+}
+
+/* emoji */
+.epr_-kg0voo {
+  z-index: var(--epr-preview-z-index);
+  display: none !important;
+}
