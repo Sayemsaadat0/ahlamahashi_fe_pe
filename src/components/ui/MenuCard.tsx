@@ -45,7 +45,8 @@ const MenuCard: React.FC<MenuCardPropsType> = ({
       >
         <div className="absolute inset-0">
           <Image
-            src={item.thumbnail || defaultImage}
+            src={defaultImage}
+            // src={item.thumbnail || defaultImage}
             alt={item.name || item.title || 'Menu item'}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
