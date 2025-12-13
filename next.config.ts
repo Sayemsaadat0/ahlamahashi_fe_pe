@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["images.unsplash.com", "localhost"],
     remotePatterns: [
         {
           protocol: 'http',
@@ -25,6 +24,10 @@ const nextConfig: NextConfig = {
         {
           protocol: 'https',
           hostname: 'images.unsplash.com',
+        },
+        {
+          protocol: 'https',
+          hostname: 'test2.cricketangon.com',
         },
     ],
   },

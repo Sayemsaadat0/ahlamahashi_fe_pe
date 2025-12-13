@@ -7,6 +7,7 @@ import ItemForm from "./_components/ItemForm";
 import PriceForm from "./_components/PriceForm";
 import DeleteAction from "@/components/core/DeleteAction";
 import { useDeleteItemPrice, ItemPrice } from "@/hooks/itemPrice.hooks";
+import Image from "next/image";
 
 const TableAction = ({ item }: { item: MenuItem }) => {
   const { mutateAsync, isPending } = useDeleteMenu(item.id ?? 0);
@@ -46,16 +47,16 @@ const ItemsPage = () => {
   const { data, isLoading, error } = useGetMenuList();
   const items = data?.data?.items || [];
 
-  const getStatusColor = (status: string) => {
-    switch (status.toLowerCase()) {
-      case "published":
-        return "bg-green-100 text-green-800";
-      case "unpublished":
-        return "bg-gray-100 text-gray-800";
-      default:
-        return "bg-blue-100 text-blue-800";
-    }
-  };
+  // const getStatusColor = (status: string) => {
+  //   switch (status.toLowerCase()) {
+  //     case "published":
+  //       return "bg-green-100 text-green-800";
+  //     case "unpublished":
+  //       return "bg-gray-100 text-gray-800";
+  //     default:
+  //       return "bg-blue-100 text-blue-800";
+  //   }
+  // };
 
   return (
     <div className="space-y-6">
@@ -128,15 +129,25 @@ const ItemsPage = () => {
                   >
                     <td className="px-6 py-4 space-y-2 max-w-md whitespace-nowrap">
                       {item.thumbnail ? (
-                        <img
-                          src={item.thumbnail}
-                          alt={item.name}
-                          className="w-16 h-16 object-cover rounded-lg"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = "none";
-                          }}
-                        />
+                        <Image
+                        src={item.thumbnail}
+                        alt={item.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = "none";
+                        }}
+                      />
+                        // <img
+                        //   src={item.thumbnail}
+                        //   alt={item.name}
+                        //   className="w-16 h-16 object-cover rounded-lg"
+                        //   onError={(e) => {
+                        //     const target = e.target as HTMLImageElement;
+                        //     target.style.display = "none";
+                        //   }}
+                        // />
                       ) : (
                         <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
                           <ImageIcon className="w-8 h-8 text-gray-400" />

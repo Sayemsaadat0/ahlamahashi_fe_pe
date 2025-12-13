@@ -38,6 +38,7 @@ const SignUpForm = () => {
                         password: data.password,
                     };
                     const result = await mutateAsync(payload);
+                    console.log(result);
                     if (result.success) {
                         toast.success(`${result.message}`);
                         resetForm();
@@ -55,9 +56,16 @@ const SignUpForm = () => {
                         toast.error(result.message);
                     }
                 } catch (error: any) {
-                    error.errors.forEach((key: { attr: string; detail: string }) => {
-                        toast.error(`${key?.attr} - ${key?.detail}`);
-                    });
+                    // console.log(error);
+                    if (error?.errors && Array.isArray(error.errors)) {
+                        error.errors.forEach((key: { attr: string; detail: string }) => {
+                            toast.error(`${key?.attr} - ${key?.detail}`);
+                        });
+                    } else {
+                        // Handle other error types
+                        const errorMessage = error?.message || error?.response?.data?.message || "An error occurred during login";
+                        toast.error(errorMessage);
+                    }
                 }
             },
         });
