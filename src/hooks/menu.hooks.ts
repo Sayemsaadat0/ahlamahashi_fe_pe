@@ -187,7 +187,7 @@ export const useGetCategorisedMenu = (
       if (search && search.trim()) {
         params.append("search", search.trim());
       }
-      const url = `/api/items/by-category/?${params.toString()}`;
+      const url = `/api/items/by-category?${params.toString()}`;
       return axiousResuest({
         url,
         method: "get",

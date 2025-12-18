@@ -33,7 +33,7 @@ export const useGetcityList = () => {
         queryKey: ["cityList"],
         queryFn: () => {
             return axiousResuest({
-                url: `/api/cities/`,
+                url: `/api/cities`,
                 method: "get",
                 headers: {
                     "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export const useCreateCity = () => {
     return useMutation({
         mutationFn: async (body: Partial<City>) =>
             await axiousResuest({
-                url: `/api/cities/`,
+                url: `/api/cities`,
                 method: "post",
                 data: body,
                 headers: {

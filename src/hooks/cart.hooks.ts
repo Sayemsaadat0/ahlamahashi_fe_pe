@@ -91,7 +91,7 @@ export const useCreateCart = () => {
   return useMutation({
     mutationFn: async (body: Partial<CartPayload>) =>
       await axiousResuest({
-        url: `/api/cart/`,
+        url: `/api/cart`,
         method: "post",
         data: body,
         headers: {
@@ -126,7 +126,7 @@ export const useGetCreatedCart = () => {
         ? `user_id=${user.id}`
         : `guest_id=${guestId}`;
 
-      const url = `/api/cart/?${queryParam}`;
+      const url = `/api/cart?${queryParam}`;
 
       return axiousResuest({
         url: url,
@@ -190,7 +190,7 @@ export const useDeleteCartItem = () => {
   return useMutation({
     mutationFn: async (body: Partial<CartItem>) =>
       await axiousResuest({
-        url: `/api/cart/item/`,
+        url: `/api/cart/item`,
         data: body,
         method: "delete",
         headers: {
